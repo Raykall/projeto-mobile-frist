@@ -1,0 +1,171 @@
+.cabecalho {
+    background: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative; /* O position relative, ele libera a opção de você botar outros atributos como top, left, right, bottom  */
+}
+
+.cabecalho__menu-hambuguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../images/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+     display: inline-block; 
+}
+
+.container__button:checked~.container__label>.cabecalho__menu-hambuguer {
+    background-image: url("../images/MenuAberto.svg");
+}
+
+.container__button:checked~.container__label{
+    background: var(--azul-degrade);
+}
+
+.container {
+    align-items: center;
+    display: flex;
+}
+
+.container__imagem {
+    padding: .8em;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute; /* O position absolute, ele permite que você movimente o seu elemento de acordo com outro que veio antes, ou que é o pai, que esteja a position diferente de static que é a padrão. */
+    top: 100%;
+    width: 50vw;
+}
+
+.container__button:checked~.lista-menu {
+    display: block;
+    
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+    padding: 1em;
+    background: var(--branco);
+}
+
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background-color: var(--azul-degrade);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.container__button {
+    display: none;
+}
+
+.container__titulo{
+    display: none;
+}
+
+.opcoes{
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+/* min-width quando é mobile e max-width quando é pc */
+@media screen and (min-width: 1024px){ 
+    .container__titulo, .container__titulo--negrito{
+        font-family: var(--font-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+        margin-left: 10px; 
+    }
+
+    .container__titulo--negrito{
+        font-weight: 700;
+    }
+
+    .cabecalho__menu-hambuguer {
+        display: none;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link{
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-invisivel{
+        display: none;
+    }
+    
+    .opcoes__botao:checked~.lista-menu {
+        display: block;
+        width: auto;
+        
+    }
+
+    .opcoes__botao{
+        display: none;
+    }
+
+    .opcoes__botao:checked~.opcoes__label>.opcoes__item {
+        background: var(--azul-degrade);
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .cabecalho{
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto;
+    }
+
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__texto {
+        display: block;
+    }
+}
